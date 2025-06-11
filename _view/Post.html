@@ -1,0 +1,58 @@
+<div>
+    <label for="usuario">Usuario</label>
+    <select name="usuario" id="usuario">
+        <option value="0" selected disabled>Usuario</option>
+        <?php   
+            foreach($this->usersCursor as $user):
+            echo "<option value='".$user['_id']."'>".$user['nombre']."</option>";
+           endforeach;
+        ?>
+    </select>
+    
+    <label for="title">Titulo</label>
+    <input type="text" id="title">
+    <label for="contenido">Contenido</label>
+    <textarea name="contenido" id="contenido"></textarea>
+    <button onclick="addPost()">Agregar</button>
+    <button onclick="Regresar()"><-Regresar</button>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <td>
+                    Usuario
+                </td>
+                <td>
+                    Titulo
+                </td>
+                <td>
+                    Contenido
+                </td>
+                <td>
+                    Fecha
+                </td>
+                <td>
+                    Hora
+                </td>
+                <td>
+                    Accion
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+    <?php 
+        foreach ($this->cursor as $doc) {
+            echo("<tr>");
+            echo("<td>".$doc["user"]."</td>");
+            echo("<td>".$doc["title"]."</td>");
+            echo("<td>".$doc["content"]."</td>");
+            echo("<td>".$doc["date"]."</td>");
+            echo("<td>".$doc["time"]."</td>");
+            echo "<td><button onclick=\"deletePost('".$doc['_id']."')\">Borrar</button></td>";
+            echo("</tr>");
+            
+        }
+    ?>
+        </tbody>
+    </table>
+
+</div>
