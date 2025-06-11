@@ -8,9 +8,9 @@
     <label for="password">Password</label>
     <input type="text" name="password" id="password">
     <label for="email">email</label>
-    <input type="text" name="email" id="email">
-    <label for="avatar">avatar</label>
-    <input type="text" name="avatar" id="avatar">
+    <input type="email" name="email" id="email">
+    <label for="avatar">avatarImage</label>
+    <input type="file" name="avatar" id="avatar" accept="image/*">
     <button onclick="addUser()">Agregar</button>
     <button onclick="Regresar()"><-Regresar</button>
     <table id="myTable">
@@ -59,16 +59,15 @@
             echo($doc["email"]);
             echo("</td>");
             echo("<td>");
-            echo($doc["avatar"]);
+            echo("<img src='".$doc["avatar"]."'>");
+    
             echo("</td>");
             
           
             echo("<td>");
             echo "<button onclick=\"deleteUser('".$doc['_id']."')\">Borrar</button>";
             echo("</td>");
-            
-            
-            echo("<tr>");
+            echo("</tr>");
         }
     ?>
         </tbody>

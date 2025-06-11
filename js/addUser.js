@@ -1,16 +1,25 @@
 function addUser(){
+    const formData = new FormData();
     let userName = document.getElementById("userName").value
     let name = document.getElementById("name").value
     let birthDate = document.getElementById("birthDate").value
     let password = document.getElementById("password").value
     let email = document.getElementById("email").value
-    let avatar = document.getElementById("avatar").value
+    let avatar = document.getElementById("avatar").files[0]
+    
+    console.log()
 
     let documento = JSON.stringify({userName, name, birthDate, password, email, avatar})
+    formData.append('userName',userName)
+    formData.append('name',name)
+    formData.append('birthDate',birthDate)
+    formData.append('password',password)
+    formData.append('email',email)
+    formData.append('avatar',avatar)
     let collection = "Users"
-    let datos = JSON.stringify({collection,documento})
-    let ruta = "<?php echo SITE_URL;?>Agregar/Usuario"
-    llamadaASweetAlert(datos,"<?php echo SITE_URL;?>_controller/addUserAjax.php","Agregar Usuario","Agregar Usuario","question","Agregar","Cancelar","No fue posible agregar el usuario","Se agrego con exito","El usuario fue agregado con exito",true,ruta)
+    formData.append('collection',collection)
+    let ruta = "<?php echo SITE_URL;?>Agregar/Usuarios"
+    llamadaASweetAlertFormData(formData,"<?php echo SITE_URL;?>_controller/addUserAjax.php","Agregar Usuario","Agregar Usuario","question","Agregar","Cancelar","No fue posible agregar el usuario","Se agrego con exito","El usuario fue agregado con exito",true,ruta)
 
 }
 

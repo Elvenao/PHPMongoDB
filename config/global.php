@@ -1,6 +1,8 @@
 <?php
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
     $base_url = $protocol . $_SERVER['HTTP_HOST'] . '/Prueba/';
+    $server = $protocol . $_SERVER['HTTP_HOST'];
+    define("SERVER",$server);
     define("SITE_URL", $base_url);
     define("RUTA_DEFAULT_LOGGED", "reportes/");
     define("RUTA_DEFAULT_UNLOGGED","login/");
