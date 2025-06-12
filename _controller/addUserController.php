@@ -46,7 +46,7 @@
             $ivLength = openssl_cipher_iv_length('aes-128-cbc');
             $iv = substr($data, 0, $ivLength);
             $ciphertext = substr($data, $ivLength);
-            return openssl_decrypt($ciphertext, 'aes-128-cbc', $clave, 0, $iv);
+            return openssl_decrypt($ciphertext, 'aes-128-cbc', $clave, OPENSSL_RAW_DATA, $iv);
         }
         public function renderContent(){
             include "_view/addUser.html";

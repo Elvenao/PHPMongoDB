@@ -61,7 +61,7 @@
     function encryptData($data, $clave) {
         $ivLength = openssl_cipher_iv_length('aes-128-cbc');
         $iv = openssl_random_pseudo_bytes($ivLength);
-        $ciphertext = openssl_encrypt($data, 'aes-128-cbc', $clave, 0, $iv);
+        $ciphertext = openssl_encrypt($data, 'aes-128-cbc', $clave,  OPENSSL_RAW_DATA, $iv);
         return base64_encode($iv . $ciphertext);
     }
 ?>
