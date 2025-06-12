@@ -14,10 +14,7 @@
 
     try {
         $model = new MainModel('mongodb://127.0.0.1:27017','miApp');
-        $rutaDestino = 'C:/Users/emhdz/Documents/Programacion Movil/Imagenes/';
-
-        
-
+        $rutaDestino = $emilio;
         $nombreArchivo = time() . '_' . basename($_FILES['avatar']['name']);
         $rutaVirtual = SERVER . "/Images/" . $nombreArchivo;
         $rutaFinal = $rutaDestino . $nombreArchivo;

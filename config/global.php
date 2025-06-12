@@ -4,7 +4,10 @@
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->load();
 
-    // Ahora puedes acceder a cualquier variable del .env
+    
+    $abraham;
+    $emilio = 'C:/Users/emhdz/Documents/Programacion Movil/Imagenes/';
+    $niamky;
     $clave = $_ENV['ENCRYPTION_KEY'];
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
     $base_url = $protocol . $_SERVER['HTTP_HOST'] . '/Prueba/';
