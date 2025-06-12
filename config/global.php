@@ -1,7 +1,15 @@
 <?php
+    require_once __DIR__ . '/../vendor/autoload.php';
+
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+
+    // Ahora puedes acceder a cualquier variable del .env
+    $clave = $_ENV['ENCRYPTION_KEY'];
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
     $base_url = $protocol . $_SERVER['HTTP_HOST'] . '/Prueba/';
     $server = $protocol . $_SERVER['HTTP_HOST'];
+    define("KEY",$clave);
     define("SERVER",$server);
     define("SITE_URL", $base_url);
     define("RUTA_DEFAULT_LOGGED", "reportes/");

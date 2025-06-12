@@ -41,7 +41,7 @@
         </thead>
         <tbody>
     <?php 
-        foreach ($this->cursor as $doc) {
+        foreach ($this->decryptedData as $doc) {
             echo("<tr>");
             echo("<td>");
             echo($doc["userName"]);
