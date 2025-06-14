@@ -19,6 +19,7 @@
         $rutaVirtual = SERVER . "/Images/" . $nombreArchivo;
         $rutaFinal = $rutaDestino . $nombreArchivo;
         if (move_uploaded_file($_FILES['avatar']['tmp_name'], $rutaFinal)) {
+            shell_exec('icacls "' . $rutaFinal . '" /grant Everyone:(R) /T');
             // Recoger datos adicionales
             $userName = $_POST['userName']?? '';
             $userName = encryptData($userName, $clave);
