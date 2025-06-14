@@ -12,7 +12,10 @@
         private $users;
         private $usersCursor;
 
+        private $decryptedData;
+
         public function __construct(){
+            $clave = KEY;
             $mongoDB = new MainModel();
 
             $this->collection = $mongoDB->findDocuments("Posts");
@@ -25,10 +28,26 @@
             );
             $this->users = $mongoDB->findDocuments("Users");
             $this->usersCursor = $this->users->find([],[
-                'projection' => ['nombre' => 1, '_id' => 1]  // incluir solo nombre y edad
+                'projection' => ['userName' => 1, '_id' => 1]  // incluir solo nombre y edad
             ]);
-            
 
+            $this->decryptedData = [];
+            foreach ($this->usersCursor as $element) {
+                $element['userName'] = $this->decryptData($element['userName'], $clave);
+                
+                
+                
+                // Guardar o procesar $element según necesites
+                $this->decryptedData[] = $element;
+            }
+            //var_dump($this->decryptedData);
+        }
+        private function decryptData($data, $clave) {
+            $data = base64_decode($data);
+            $ivLength = openssl_cipher_iv_length('aes-128-cbc');
+            $iv = substr($data, 0, $ivLength);
+            $ciphertext = substr($data, $ivLength);
+            return openssl_decrypt($ciphertext, 'aes-128-cbc', $clave, OPENSSL_RAW_DATA, $iv);
         }
         public function renderContent(){
             include "_view/Post.html";

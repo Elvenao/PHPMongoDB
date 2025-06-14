@@ -30,8 +30,8 @@
                 
                 $element['name'] = $this->decryptData($element['name'], $clave);
                 $element['birthDate'] = $this->decryptData($element['birthDate'], $clave);
-                $element['password'] = $this->decryptData($element['password'], $clave);
-                $element['email'] = $this->decryptData($element['email'], $clave);
+                //$element['password'] = $this->decryptData($element['password'], $clave);
+                //$element['email'] = $this->decryptData($element['email'], $clave);
                 
                 // Guardar o procesar $element según necesites
                 $this->decryptedData[] = $element;
@@ -54,4 +54,5 @@
         public function renderJS(){
             include "js/addUser.js";
         }
+        
     }

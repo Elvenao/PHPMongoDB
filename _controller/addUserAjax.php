@@ -27,10 +27,10 @@
             $birthDate = $_POST['birthDate']?? '';
             $birthDate = encryptData($birthDate, $clave);
             $password = $_POST['password']?? '';
-            $password = password_hash($password,PASSWORD_ARGON2ID,$options);
-            $password = encryptData($password, $clave);
+            $password = password_hash($password, PASSWORD_BCRYPT);
+            //$password = encryptData($password, $clave); Lo mejor es no cifrar debido a que a la hora de hacer el login hay que hacer busqueda en la base de datos
             $email = $_POST['email']?? '';
-            $email = encryptData($email, $clave);
+            //$email = encryptData($email, $clave); Lo mejor es no cifrar debido a que a la hora de hacer el login hay que hacer busqueda en la base de datos
             $collection = $_POST['collection'];
 
             $documento = json_encode([
