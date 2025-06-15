@@ -16,7 +16,7 @@
         $model = new MainModel('mongodb://127.0.0.1:27017','miApp');
         $rutaDestino = $emilio;
         $nombreArchivo = time() . '_' . basename($_FILES['avatar']['name']);
-        $rutaVirtual = SERVER . "/Images/" . $nombreArchivo;
+        $rutaVirtual =  "/Images/" . $nombreArchivo;
         $rutaFinal = $rutaDestino . $nombreArchivo;
         if (move_uploaded_file($_FILES['avatar']['tmp_name'], $rutaFinal)) {
             // Recoger datos adicionales
@@ -28,6 +28,10 @@
             $birthDate = encryptData($birthDate, $clave);
             $password = $_POST['password']?? '';
             $password = password_hash($password, PASSWORD_BCRYPT);
+            $biography = $_POST['biography']?? '';
+            $genresString = $_POST['genres'] ?? '';
+            $genres = array_map('trim', explode(',', $genresString));
+            
             //$password = encryptData($password, $clave); Lo mejor es no cifrar debido a que a la hora de hacer el login hay que hacer busqueda en la base de datos
             $email = $_POST['email']?? '';
             //$email = encryptData($email, $clave); Lo mejor es no cifrar debido a que a la hora de hacer el login hay que hacer busqueda en la base de datos
@@ -36,6 +40,8 @@
             $documento = json_encode([
                 "userName" => $userName,
                 "name" => $name,
+                "biography" => $biography,
+                "genres" => $genres,
                 "birthDate" => $birthDate,
                 "password" => $password,
                 "email" => $email,

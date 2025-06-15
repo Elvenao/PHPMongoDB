@@ -1,4 +1,4 @@
-function addUser(){
+function addMovie(){
     const formData = new FormData();
     let userName = document.getElementById("userName").value
     let name = document.getElementById("name").value
@@ -6,10 +6,8 @@ function addUser(){
     let password = document.getElementById("password").value
     let email = document.getElementById("email").value
     let avatar = document.getElementById("avatar").files[0]
-    let biography = document.getElementById("biography").value
-    let genres = document.getElementById("genres").value
-    let genresArray = genres.split(",")
-    console.log(genresArray)
+    
+    console.log()
 
     let documento = JSON.stringify({userName, name, birthDate, password, email, avatar})
     formData.append('userName',userName)
@@ -18,8 +16,6 @@ function addUser(){
     formData.append('password',password)
     formData.append('email',email)
     formData.append('avatar',avatar)
-    formData.append('biography',biography)
-    formData.append('genres',genresArray)
     let collection = "Users"
     formData.append('collection',collection)
     let ruta = "<?php echo SITE_URL;?>Agregar/Usuarios"

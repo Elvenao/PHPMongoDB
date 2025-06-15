@@ -19,7 +19,17 @@
             }else if($campo == "Post"){
                 require_once "_controller/PostController.php";
                 $ctrl = new PostController();
-            }else{
+            }else if($campo == "Peliculas"){
+                require_once "_controller/addMovieController.php";
+                $ctrl = new PostController();
+            }else if($campo == "Series"){
+                require_once "_controller/PostController.php";
+                $ctrl = new PostController();
+            }else if($campo == "Videojuegos"){
+                require_once "_controller/PostController.php";
+                $ctrl = new PostController();
+            }
+            else{
                 require_once "_controller/error404Controller.php";
                 $ctrl = new Error404Controller();
             }

@@ -7,12 +7,6 @@
     <input type="date" name="birthDate" id="birthDate">
     <label for="password">Password</label>
     <input type="text" name="password" id="password">
-
-    <label for="biography">biography</label>
-    <input type="biography" name="biography" id="biography">
-    <label for="genres">genres</label>
-    <input type="genres" name="genres" id="genres">
-
     <label for="email">email</label>
     <input type="email" name="email" id="email">
     <label for="avatar">avatarImage</label>
@@ -33,12 +27,6 @@
                 </td>
                 <td>
                     password
-                </td>
-                <td>
-                    Biografia
-                </td>
-                <td>
-                    Generos
                 </td>
                 <td>
                     email
@@ -65,22 +53,13 @@
             echo($doc["birthDate"]);
             echo("</td>");
             echo("<td>");
-            echo("*****");
-            echo("</td>");
-            echo("<td>");
-            echo($doc["biography"]);
-            echo("</td>");
-            echo("<td>");
-                foreach($doc["genres"] as $generos){
-                    echo($generos);
-                    echo("  ");
-                }
+            echo($doc["password"]);
             echo("</td>");
             echo("<td>");
             echo($doc["email"]);
             echo("</td>");
             echo("<td>");
-            echo("<img src='".SERVER .$doc["avatar"]."' class='image'>");
+            echo("<img src='".$doc["avatar"]."' class='image'>");
     
             echo("</td>");
             
