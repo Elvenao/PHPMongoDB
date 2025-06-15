@@ -32,6 +32,7 @@
             $biography = $_POST['biography']?? '';
             $genresString = $_POST['genres'] ?? '';
             $genres = array_map('trim', explode(',', $genresString));
+            $date = $_POST['joiningDate'];
             
             //$password = encryptData($password, $clave); Lo mejor es no cifrar debido a que a la hora de hacer el login hay que hacer busqueda en la base de datos
             $email = $_POST['email']?? '';
@@ -44,6 +45,7 @@
                 "biography" => $biography,
                 "genres" => $genres,
                 "birthDate" => $birthDate,
+                "joiningDate" => $date,
                 "password" => $password,
                 "email" => $email,
                 "avatar" =>$rutaVirtual

@@ -21,7 +21,7 @@
             $this->cursor = $this->collection->find(
                 [],
                 [
-                    'projection' => ['userName' => 1, 'name' => 1, 'birthDate' => 1, 'password' => 1, 'email' => 1, 'avatar' => 1, 'biography' => 1, 'genres' => 1]  // incluir solo nombre y edad
+                    'projection' => ['userName' => 1, 'name' => 1, 'birthDate' => 1, 'password' => 1, 'email' => 1, 'avatar' => 1, 'biography' => 1, 'genres' => 1, 'joiningDate' => 1]  // incluir solo nombre y edad
                 ]
             );
             $this->decryptedData = [];
