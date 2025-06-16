@@ -26,8 +26,7 @@
             );
             $this->decryptedData = [];
             foreach ($this->cursor as $element) {
-                $element['userName'] = $this->decryptData($element['userName'], $clave);
-                
+               
                 $element['name'] = $this->decryptData($element['name'], $clave);
                 $element['birthDate'] = $this->decryptData($element['birthDate'], $clave);
                 //$element['password'] = $this->decryptData($element['password'], $clave);

@@ -22,7 +22,6 @@
             shell_exec('icacls "' . $rutaFinal . '" /grant Everyone:(R) /T');
             // Recoger datos adicionales
             $userName = $_POST['userName']?? '';
-            $userName = encryptData($userName, $clave);
             $name = $_POST['name']?? '';
             $name = encryptData($name, $clave);
             $birthDate = $_POST['birthDate']?? '';
