@@ -31,15 +31,7 @@
                 'projection' => ['userName' => 1, '_id' => 1]  // incluir solo nombre y edad
             ]);
 
-            $this->decryptedData = [];
-            foreach ($this->usersCursor as $element) {
-                $element['userName'] = $this->decryptData($element['userName'], $clave);
-                
-                
-                
-                // Guardar o procesar $element según necesites
-                $this->decryptedData[] = $element;
-            }
+            
             //var_dump($this->decryptedData);
         }
         private function decryptData($data, $clave) {

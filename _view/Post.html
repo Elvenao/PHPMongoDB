@@ -3,7 +3,7 @@
     <select name="usuario" id="usuario">
         <option value="0" selected disabled>Usuario</option>
         <?php   
-            foreach($this->decryptedData as $user):
+            foreach($this->usersCursor as $user):
             echo "<option value='".$user['_id']."'>".$user['userName']."</option>";
            endforeach;
         ?>
