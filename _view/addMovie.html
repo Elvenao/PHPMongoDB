@@ -1,76 +1,45 @@
 <div>
-    <label for="userName">UserName</label>
-    <input type="text" name="userName" id="userName">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name">
-    <label for="birthDate">birthDate</label>
-    <input type="date" name="birthDate" id="birthDate">
-    <label for="password">Password</label>
-    <input type="text" name="password" id="password">
-    <label for="email">email</label>
-    <input type="email" name="email" id="email">
-    <label for="avatar">avatarImage</label>
-    <input type="file" name="avatar" id="avatar" accept="image/*">
-    <button onclick="addUser()">Agregar</button>
+    <label for="movieName">MovieName</label>
+    <input type="text" name=movieName" id="movieName">
+    <label for="description">Description</label>
+    <input type="text" name="description" id="description">
+    <label for="duration">Duration</label>
+    <input type="text" name="duration" id="duration">
+    <label for="director">Director</label>
+    <input type="text" name="director" id="director">
+    <label for="cast">Cast</label>
+    <input type="text" name="cast" id="cast">
+    <label for="poster">Poster</label>
+    <input type="file" name="poster" id="poster" accept="image/*">
+    <button onclick="addMovie()">Agregar</button>
     <button onclick="Regresar()"><-Regresar</button>
     <table id="myTable">
-        <thead>
-            <tr>
-                <td>
-                    UserName
-                </td>
-                <td>
-                    Name
-                </td>
-                <td>
-                    birthDate
-                </td>
-                <td>
-                    password
-                </td>
-                <td>
-                    email
-                </td>
-                <td>
-                    avatar
-                </td>
-                <td>
-                    Accion
-                </td>
-            </tr>
-        </thead>
-        <tbody>
-    <?php 
-        foreach ($this->decryptedData as $doc) {
-            echo("<tr>");
-            echo("<td>");
-            echo($doc["userName"]);
-            echo("</td>");
-            echo("<td>");
-            echo($doc["name"]);
-            echo("</td>");
-            echo("<td>");
-            echo($doc["birthDate"]);
-            echo("</td>");
-            echo("<td>");
-            echo($doc["password"]);
-            echo("</td>");
-            echo("<td>");
-            echo($doc["email"]);
-            echo("</td>");
-            echo("<td>");
-            echo("<img src='".$doc["avatar"]."' class='image'>");
-    
-            echo("</td>");
-            
-          
-            echo("<td>");
-            echo "<button onclick=\"deleteUser('".$doc['_id']."')\">Borrar</button>";
-            echo("</td>");
-            echo("</tr>");
-        }
-    ?>
-        </tbody>
-    </table>
+    <thead>
+        <tr>
+            <td>MovieName</td>
+            <td>Description</td>
+            <td>Duration</td>
+            <td>Director</td>
+            <td>Cast</td>
+            <td>Poster</td>
+            <td>Accion</td>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+            foreach ($this->decryptedData as $doc) {
+                echo "<tr>";
+                echo "<td>{$doc["movieName"]}</td>";
+                echo "<td>{$doc["description"]}</td>";
+                echo "<td>{$doc["duration"]}</td>";
+                echo "<td>{$doc["director"]}</td>";
+                echo "<td>{$doc["cast"]}</td>";
+                echo "<td><img src='{$doc["poster"]}' class='image'></td>";
+                echo "<td><button onclick=\"deleteUser('{$doc['_id']}')\">Borrar</button></td>";
+                echo "</tr>";
+            }
+        ?>
+    </tbody>
+</table>
 
 </div>

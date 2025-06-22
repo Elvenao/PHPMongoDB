@@ -1,5 +1,5 @@
 <?php 
-    require 'vendor/autoload.php';
+    require_once 'vendor/autoload.php';
     require_once 'config/global.php';
     $queryString = isset($_GET["querystring"]) ? $_GET["querystring"] : "";
     $uri = 'mongodb://127.0.0.1:27017';
@@ -21,7 +21,7 @@
                 $ctrl = new PostController();
             }else if($campo == "Peliculas"){
                 require_once "_controller/addMovieController.php";
-                $ctrl = new PostController();
+                $ctrl = new addMovieController();
             }else if($campo == "Series"){
                 require_once "_controller/PostController.php";
                 $ctrl = new PostController();
