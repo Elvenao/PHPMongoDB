@@ -5,6 +5,7 @@ function addMovie(){
     let duration = document.getElementById("duration").value
     let director = document.getElementById("director").value
     let cast = document.getElementById("cast").value
+    let gender = document.getElementById("gender").value
     let poster = document.getElementById("poster").files[0]
     
     console.log()
@@ -15,6 +16,7 @@ function addMovie(){
     formData.append('duration',duration)
     formData.append('director',director)
     formData.append('cast',cast)
+    formData.append('gender',gender)
     formData.append('poster',poster)
     let collection = "Movies"
     formData.append('collection',collection)

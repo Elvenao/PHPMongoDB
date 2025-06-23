@@ -26,6 +26,7 @@
             $duration = $_POST['duration']?? '';
             $director= $_POST['director']?? '';
             $cast = $_POST['cast'] ?? '';
+            $gender = $_POST['gender'] ?? '';
             
             $collection = $_POST['collection'];
 
@@ -35,6 +36,7 @@
                 "duration" => $duration,
                 "director" => $director,
                 "cast" => $cast,
+                "gender" => $gender,
                 "poster" =>$rutaVirtual
             ]);
 
