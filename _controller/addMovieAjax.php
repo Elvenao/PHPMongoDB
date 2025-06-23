@@ -16,7 +16,7 @@
         $model = new MainModel('mongodb://127.0.0.1:27017','miApp');
         $rutaDestino = $emilio;
         $nombreArchivo = time() . '_' . basename($_FILES['poster']['name']);
-        $rutaVirtual =  "/Images/" . $nombreArchivo;
+        $rutaVirtual =  "/Images/Movies/" . $nombreArchivo;
         $rutaFinal = $rutaDestino . $nombreArchivo;
         if (move_uploaded_file($_FILES['poster']['tmp_name'], $rutaFinal)) {
             shell_exec('icacls "' . $rutaFinal . '" /grant Everyone:(R) /T');
