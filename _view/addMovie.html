@@ -23,6 +23,7 @@
             <td>Duration</td>
             <td>Director</td>
             <td>Cast</td>
+            <td>Gender</td>
             <td>Poster</td>
             <td>Accion</td>
         </tr>
@@ -36,6 +37,7 @@
                 echo "<td>{$doc["duration"]}</td>";
                 echo "<td>{$doc["director"]}</td>";
                 echo "<td>{$doc["cast"]}</td>";
+                echo "<td>{$doc["gender"]}</td>";
                 echo "<td><img src='{$doc["poster"]}' class='image'></td>";
                 echo "<td><button onclick=\"deleteUser('{$doc['_id']}')\">Borrar</button></td>";
                 echo "</tr>";
