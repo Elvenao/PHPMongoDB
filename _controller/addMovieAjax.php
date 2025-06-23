@@ -14,7 +14,7 @@
 
     try {
         $model = new MainModel('mongodb://127.0.0.1:27017','miApp');
-        $rutaDestino = $emilio;
+        $rutaDestino = $emilio. "Movies/";
         $nombreArchivo = time() . '_' . basename($_FILES['poster']['name']);
         $rutaVirtual =  "/Images/Movies/" . $nombreArchivo;
         $rutaFinal = $rutaDestino . $nombreArchivo;
